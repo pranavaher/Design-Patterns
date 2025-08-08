@@ -28,15 +28,31 @@ public class Main {
     // Bollywood Classical/Fusion (optional)
     playlist.addSong(new Song("Jashn-E-Bahara", "Javed Ali", "Bollywood Classical", 310, LocalDate.now().minusDays(1)));
 
+
+    System.out.println("\n------------ Default Iterator ------------\n");
+    
     ISongIterator defaultIterator = playlist.createDefaultIterator();
-
+    
     System.out.println("🎵 Playing from start:");
-
+    
     while(defaultIterator.hasNeaxt()) {
       System.out.print(defaultIterator.next());
     }
-
+    
     System.out.println("\n⏮️ First Song: " + defaultIterator.first());
     System.out.println("⏭️ Last Song: " + defaultIterator.last());
+
+    System.out.println("\n------------ Duration Range Based Iterator ------------\n");
+    
+    ISongIterator durationSongIterator = playlist.createDurationRangeIterator(200, 240);
+
+    System.out.println("🎵 Playing from start:");
+
+    while(durationSongIterator.hasNeaxt()) {
+      System.out.print(durationSongIterator.next());
+    }
+
+    System.out.println("\n⏮️ First Song: " + durationSongIterator.first());
+    System.out.println("⏭️ Last Song: " + durationSongIterator.last());
   }
 }

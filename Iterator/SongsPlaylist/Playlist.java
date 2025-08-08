@@ -15,6 +15,10 @@ public class Playlist {
   public ISongIterator createDefaultIterator() {
     return new DefaultIterator(songs);
   }
+
+  public ISongIterator createDurationRangeIterator(int minDuration, int maxDuration) {
+    return new DurationRangeIterator(songs, minDuration, maxDuration);
+  }
 }
 
 
